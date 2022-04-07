@@ -181,7 +181,7 @@ public class Board extends JPanel implements ActionListener {
             this.curPiece.setShape(Piece.Tetrominoes.NoShape);
             this.timer.stop();
             this.isStarted = false;
-            this.statusbar.setText("   game over - press R to restart");
+            this.statusbar.setText(" game over, press R to restart");
         }
     }
 
