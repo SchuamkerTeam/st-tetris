@@ -34,7 +34,7 @@ jobs:
       
     - name: create .jar
       run: |
-        jar -cvfm build/MyGame.jar Manifest.txt -C bin/ . class/
+        jar -cvfm build/MyGame.jar Manifest.txt -C build/ . class/
    
     - name: upload .jar
       uses: actions/upload-artifact@v3
