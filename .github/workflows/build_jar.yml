@@ -29,20 +29,8 @@ jobs:
       
     - name: create .jar
       run: |
-        jar -cvfm build/MyGame.jar Manifest.txt -C build/ . class/
-        
-    - name: see dirs 
-      run: |
-        ls -al
-        pwd
-        cd class
-        ls -al
-        cd ..
-        cd build
-        ls -al
-        cd ..
-        pwd
-   
+        jar -cvfm build/st-tetris.jar Manifest.txt -C build/ . class/
+         
     - name: upload .jar
       uses: actions/upload-artifact@v3
       with:
