@@ -25,7 +25,7 @@ jobs:
         mkdir build
     
     - name: create .class
-      run: javac -cp class/ src/com.schumakerteam.tetris.java -d bin n
+      run: javac -cp class/ src/com.schumakerteam.tetris/*/*.java -d bin n
       
     - name: create .jar
       run: |
