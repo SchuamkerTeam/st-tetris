@@ -24,23 +24,30 @@ jobs:
         mkdir class
         mkdir build
     
-    - name: see dirs 
-      run: |
-        ls -al
-        pwd
-          
     - name: build with Ant
       run: ant -noinput -buildfile build.xml
       
     - name: create .jar
       run: |
         jar -cvfm build/MyGame.jar Manifest.txt -C build/ . class/
+        
+    - name: see dirs 
+      run: |
+        ls -al
+        pwd
+        cd class
+        ls -al
+        cd ..
+        cd build
+        ls -al
+        cd ..
+        pwd
    
     - name: upload .jar
       uses: actions/upload-artifact@v3
       with:
         name: artifacts
-        path: /build
+        path: ./build
     
       
     
