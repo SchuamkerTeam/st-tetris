@@ -28,9 +28,9 @@ jobs:
       run: |
         ls -al
         pwd
-    
-    - name: create .class
-      run: javac -cp class/ src/com.schumakerteam.tetris/*/*.java -d bin n
+          
+    - name: build with Ant
+      run: ant -noinput -buildfile build.xml
       
     - name: create .jar
       run: |
