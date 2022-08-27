@@ -23,7 +23,14 @@
  */
 package com.schumakerteam.tetris.run;
 
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.Transparency;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,9 +41,11 @@ import javax.swing.JPanel;
  * @author Hudson Schumaker
  */
 public class Splash extends JFrame {
+    private Image icon;
     
     public Splash() {
         JPanel panel = new JPanel();
+        this.loadIcon();
         
         URL url = getClass().getResource("logo.png");
         ImageIcon logo = new ImageIcon(url);
@@ -46,5 +55,24 @@ public class Splash extends JFrame {
         this.setSize(400, 107);
         this.setUndecorated(true);
         this.setLocationRelativeTo(null);
+    }
+    
+    private void loadIcon() {
+        URL url = getClass().getResource("avatar.png");
+        try {
+            BufferedImage source = ImageIO.read(url);
+            
+            GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+            Image image = gc.createCompatibleImage(source.getWidth(), source.getHeight(), Transparency.TRANSLUCENT);
+            
+            image.getGraphics().drawImage(source, 0, 0, null);
+            image.setAccelerationPriority(1.0f);
+            this.setIconImage(image);
+            this.icon = image;
+        } catch (IOException ex) {}
+    }
+    
+    public Image getIcon() {
+        return icon;
     }
 }
