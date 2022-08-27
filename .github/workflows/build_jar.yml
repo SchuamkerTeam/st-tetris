@@ -28,7 +28,7 @@ jobs:
       
     - name: create .jar
       run: |
-        jar -cvfm build/st-tetris.jar Manifest.txt -C build/ . class/
+        jar -cvfm build/st-tetris.jar MANIFEST.MF -C build/ . class/
          
     - name: upload .jar
       uses: actions/upload-artifact@v3
