@@ -24,6 +24,7 @@
 package com.schumakerteam.tetris.core;
 
 import com.schumakerteam.tetris.gfx.Board;
+import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -34,8 +35,12 @@ import javax.swing.JLabel;
 public class Game extends JFrame {
 
     private final JLabel statusbar;
-   
-    public Game() {
+    private Image icon;
+    
+    public Game(Image icon) {
+        this.icon = icon;
+        this.setIconImage(icon);
+        
         this.statusbar = new JLabel("0");
         this.add(this.statusbar, "South");
         Board board = new Board(this);
@@ -47,6 +52,7 @@ public class Game extends JFrame {
            
         board.start();
     }
+    
     public JLabel getStatusBar() {
         return this.statusbar;
     }
