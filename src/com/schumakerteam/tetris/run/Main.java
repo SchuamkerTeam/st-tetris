@@ -24,6 +24,7 @@
 package com.schumakerteam.tetris.run;
 
 import com.schumakerteam.tetris.core.Game;
+import java.awt.Image;
 
 /**
  *
@@ -34,17 +35,17 @@ public class Main {
     public static void main(String ...args) {
         Splash splash = new Splash();
         splash.setVisible(true);
-        
+        Image image = null;
         try {
             Thread.sleep(3000);
+            image = splash.getIcon();
         } catch (InterruptedException ex) {
-           
         } finally {
             splash.setVisible(false);
             splash.dispose();
         }
         
-        Game tetris = new Game();
+        Game tetris = new Game(image);
         tetris.setLocationRelativeTo(null);
         tetris.setVisible(true);
     }
